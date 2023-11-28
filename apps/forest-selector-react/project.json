@@ -24,7 +24,8 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "forest-selector-react:build"
+        "buildTarget": "forest-selector-react:build",
+        "proxyConfig": "apps/forest-selector-react/proxy.conf.json"
       },
       "configurations": {
         "development": {
