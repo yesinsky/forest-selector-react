@@ -2,7 +2,10 @@
   "name": "@forest-selector-react/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "front:dev": "npx nx run forest-selector-react:serve --configuration=development",
+    "back:dev": "npx nx run forest-selector-react-api:serve --configuration=development"
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^10.0.2",
