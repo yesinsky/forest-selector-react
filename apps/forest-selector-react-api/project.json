@@ -1,0 +1,57 @@
+{
+  "name": "forest-selector-react-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/forest-selector-react-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/forest-selector-react-api",
+        "main": "apps/forest-selector-react-api/src/main.ts",
+        "tsConfig": "apps/forest-selector-react-api/tsconfig.app.json",
+        "assets": ["apps/forest-selector-react-api/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/forest-selector-react-api/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "forest-selector-react-api:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "forest-selector-react-api:build:development"
+        },
+        "production": {
+          "buildTarget": "forest-selector-react-api:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/forest-selector-react-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/forest-selector-react-api/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
